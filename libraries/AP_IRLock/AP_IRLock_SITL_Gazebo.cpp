@@ -20,6 +20,7 @@
  *      Author: Ian Chen
  */
 #include <AP_HAL/AP_HAL.h>
+#include <cstdio>
 
 #if CONFIG_HAL_BOARD == HAL_BOARD_SITL
 #include "AP_IRLock_SITL_Gazebo.h"
@@ -43,6 +44,8 @@ void AP_IRLock_SITL_Gazebo::init(int8_t bus)
     // Gazebo keeps sending us packets. Not strictly necessary but
     // useful for debugging
     sock.bind("127.0.0.1", sitl->irlock_port);
+
+    printf("irlock in port %d\n", sitl->irlock_port);
 
     sock.reuseaddress();
     sock.set_blocking(false);

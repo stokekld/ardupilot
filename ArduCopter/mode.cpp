@@ -608,6 +608,7 @@ void Mode::land_run_horizontal_control()
 
 #if PRECISION_LANDING == ENABLED
     bool doing_precision_landing = !copter.ap.land_repo_active && copter.precland.target_acquired();
+    printf("Target %d\n", copter.precland.target_acquired());
     // run precision landing
     if (doing_precision_landing) {
         Vector2f target_pos, target_vel_rel;
